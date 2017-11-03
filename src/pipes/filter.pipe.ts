@@ -10,9 +10,9 @@ export class FilterPipe implements PipeTransform {
         if (!items || !filter) return items;
 
         if(filter == 'open'){
-            return items.filter(function(obj) { return obj.status == 0; });
+            return items.filter(function(obj) { return obj.status == false; });
         }else{
-            return items.filter(function(obj) { return obj.status == 1; });
+            return items.filter(function(obj) { return obj.status == true; });
         }
         
     }
