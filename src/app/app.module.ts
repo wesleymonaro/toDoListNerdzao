@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { FilterPipe } from '../pipes/filter.pipe';
 import { IonicStorageModule } from '@ionic/storage';
+import { TaskService } from '../providers/task.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { IonicStorageModule } from '@ionic/storage';
     HomePage
   ],
   providers: [
+    TaskService,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

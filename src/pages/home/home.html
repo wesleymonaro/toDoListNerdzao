@@ -1,14 +1,32 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      toDoList Nerdzão
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <form>
+    <ion-item>
+      <ion-input name="name" type="text" placeholder="Ex: Estudar" [(ngModel)]="task.name"></ion-input>
+    </ion-item>
+    <button ion-button block (click)="saveTask()">Adicionar</button>
+  </form>
+
+  <p text-left text-uppercase>Tarefas Abertas</p>
+  <ion-list>
+    <ion-item *ngFor="let task of tasks | filter:'open'">
+      <ion-label>{{ task.name }}</ion-label>
+      <ion-checkbox [(ngModel)]="task.status" (click)="updateTask(task)"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <p text-left text-uppercase>Tarefas Fechadas</p>
+  <ion-list>
+    <ion-item *ngFor="let task of tasks| filter:'done'">
+      <ion-label>{{ task.name }}</ion-label>
+      <ion-checkbox [(ngModel)]="task.status" (click)="updateTask(task)"></ion-checkbox>
+    </ion-item>
+  </ion-list>
 </ion-content>
